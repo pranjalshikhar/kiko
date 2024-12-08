@@ -1,7 +1,8 @@
+import { useFavorites } from "@/hooks/use-favorite";
 import { useSearchHistory } from "@/hooks/use-search-history";
 import { useLocationSearch } from "@/hooks/use-weather";
 import { format } from "date-fns";
-import { Clock, Loader2, Search, XCircle } from "lucide-react";
+import { Clock, Loader2, Search, Star, XCircle } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -22,6 +23,7 @@ const CitySearch = () => {
 
   const { data: locations, isLoading } = useLocationSearch(query);
   const { history, addToHistory, clearHistory } = useSearchHistory();
+  const { favorites } = useFavorites();
 
   const handleSelect = (cityData: string) => {
     const [lat, lon, name, country] = cityData.split("|");
@@ -60,10 +62,31 @@ const CitySearch = () => {
             <CommandEmpty>No cities found.</CommandEmpty>
           )}
 
-          <CommandGroup heading="Favorites">
-            <CommandItem></CommandItem>
-          </CommandGroup>
+          {/* favorites section */}
+          {favorites.length > 0 && (
+            <CommandGroup heading="Favorites">
+              {favorites.map((city) => (
+                <CommandItem
+                  key={city.id}
+                  value={`${city.lat}|${city.lon}|${city.name}|${city.country}`}
+                  onSelect={handleSelect}
+                >
+                  <Star className="mr-2 h-4 w-4 text-yellow-500" />
+                  <span>{city.name}</span>
+                  {city.state && (
+                    <span className="text-sm text-muted-foreground">
+                      , {city.state}
+                    </span>
+                  )}
+                  <span className="text-sm text-muted-foreground">
+                    , {city.country}
+                  </span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          )}
 
+          {/*  search history section */}
           {history.length > 0 && (
             <>
               <CommandSeparator />
