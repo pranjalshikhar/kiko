@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# ⛅ Kiko - A Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Key Highlights
 
-Currently, two official plugins are available:
+### 1. Technology Stack
+- Built using **React** and **Vite.js**, providing a fast and efficient development experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 2. UI Framework
+- Designed with **ShadCN UI** and **Tailwind CSS**, ensuring a modern, responsive, and visually appealing interface.
 
-## Expanding the ESLint configuration
+### 3. Data Visualization
+- Integrated with **Recharts** to display weather data in an intuitive and interactive chart format.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 4. Weather Forecast
+- Uses the **OpenWeather API** to fetch and display accurate weather forecasts, including temperature, humidity, and more.
 
-- Configure the top-level `parserOptions` property like this:
+### 5. Dark and Light Mode
+- Offers a toggle for **Dark Mode** and **Light Mode**, enhancing usability and aesthetics for different user preferences.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 6. Key Features
+- Location-based weather updates.
+- Responsive design for seamless performance on all devices.
+- Easy-to-read charts for weather trends.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Screenshots
+![image](https://github.com/user-attachments/assets/f75d97ab-d97e-4421-a733-57ca3863c709)
+![image](https://github.com/user-attachments/assets/bb32437e-e4e7-4fb2-8c4f-52c5bdbd7bd6)
