@@ -35,11 +35,9 @@ const CitySearch = () => {
       country,
     });
 
-    navigate(`/city/${name}??lat=${lat}&lon=${lon}`);
+    navigate(`/city/${name}?lat=${lat}&lon=${lon}`);
     setOpen(false);
   };
-
-  console.log(locations);
 
   return (
     <>
